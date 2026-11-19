@@ -10,7 +10,7 @@
   4. 段落、曲式、调号修正的小节号按谱面位置换成新编号（renumber.py）；
   5. 之后运行 bash <工具包>/build.sh text（读谱结果会按位置自动重新分配到新小节），不要再跑 align。
 用法：python3 import_checker.py 小节时间.csv"""
-import os, sys, csv, json, re, time, shutil
+import math, os, sys, csv, json, re, time, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from common import MID, DATA, BARS_CSV, TIMES_CSV, AUDIO_START
 import renumber
@@ -36,7 +36,11 @@ def main():
         os.execvp(sys.executable, [sys.executable, os.path.join(os.path.dirname(__file__), "import_times_only.py"), src])
     rows.sort(key=lambda r: int(r["小节"]))
     times = [parse_t(r["开始"]) for r in rows]
-    assert all(b > a for a, b in zip(times, times[1:])), "时间不是递增的"
+    numbers = [int(r["小节"]) for r in rows]
+    if numbers != list(range(numbers[0], numbers[0] + len(rows))):
+        raise SystemExit("CSV 的小节号须连续且唯一")
+    if not all(math.isfinite(t) for t in times) or any(b <= a for a, b in zip(times, times[1:])):
+        raise SystemExit("小节时间须为有限值且严格递增")
     tag = time.strftime("%m%d_%H%M%S")
     bak = os.path.join(MID, f"导入前备份_{tag}")
     os.makedirs(bak, exist_ok=True)
@@ -70,11 +74,11 @@ def main():
     with open(TIMES_CSV, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f); w.writerow(["小节", "开始", "备注"])
         for i, t in enumerate(times, start=1):
-            w.writerow([i, fmt(t), "已确认" if i in conf else ""])
+            w.writerow([i, rows[i - 1]["开始"], rows[i - 1].get("备注", "")])
     with open(os.path.join(DATA, "对齐锚点.csv"), "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f); w.writerow(["小节", "开始", "备注"])
         for i in conf:
-            w.writerow([i, fmt(times[i - 1]), "校对站确认"])
+            w.writerow([i, rows[i - 1]["开始"], "校对站确认"])
     p2 = next((i for i, r in enumerate(rows, start=1) if str(r.get("部分", "1")).strip() == "2"), None)
     open(os.path.join(DATA, "两部分.txt"), "w", encoding="utf-8").write(
         "# 小节连续编号：第二部分第一小节的编号、最后一小节编号\n"

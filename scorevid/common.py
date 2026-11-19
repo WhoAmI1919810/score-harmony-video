@@ -95,8 +95,8 @@ FULL_FIRST = int(cfg("full_score.first_page", 1))
 FULL_LAST = int(cfg("full_score.last_page", 1))
 FULL_UPSCALE = int(cfg("full_score.upscale", 2))
 if SCORE == "full":
-    SCORE_BARS_CSV = os.path.join(DATA, "总谱小节位置.csv")
-    SCORE_PAGES = os.path.join(MID, "总谱_deskew")
+    SCORE_BARS_CSV = _path(cfg("full_score.bars_csv", "数据/总谱小节位置.csv"))
+    SCORE_PAGES = _path(cfg("full_score.pages_dir", "中间文件/总谱_deskew"))
     SCORE_FIRST, SCORE_LAST = FULL_FIRST, FULL_LAST
     SCORE_TITLE = cfg("full_score.credit", "")
 else:

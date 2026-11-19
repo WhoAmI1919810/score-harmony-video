@@ -338,9 +338,18 @@ def load_times(path, fake=False):
         for b in range(1, textdoc.LAST_BAR + 1):
             bs[b] = 5.2 + (b - 1) * 4.1
         return bs, {}, bs[textdoc.LAST_BAR] + 26
-    bs = {}
-    for r in csv.DictReader(open(path, encoding="utf-8")):
-        bs[int(r["小节"])] = parse_time(r["开始"])
+    with open(path, encoding="utf-8-sig") as f:
+        pairs = [(int(r["小节"]), parse_time(r["开始"])) for r in csv.DictReader(f)]
+    bs = dict(pairs)
+    last_bar = textdoc.LAST_BAR if textdoc.LAST_BAR is not None else max(bs, default=textdoc.FIRST_BAR - 1)
+    expected = set(range(textdoc.FIRST_BAR, last_bar + 1))
+    ordered = [bs[b] for b in sorted(bs)]
+    if len(pairs) != len(bs) or set(bs) != expected:
+        raise ValueError("小节时间表的小节编号与渲染工程不一致")
+    if (not ordered or not all(math.isfinite(t) for t in ordered)
+            or any(a >= b for a, b in zip(ordered, ordered[1:]))
+            or ordered[-1] >= MUSIC_END):
+        raise ValueError("小节时间须严格递增，并且末小节须早于乐曲结束")
     beats = {}
     bpath = os.path.join(MID, "align", "beats.csv")
     auto = os.path.join(MID, "align", "小节时间_自动.csv")
@@ -356,8 +365,8 @@ def load_times(path, fake=False):
     good = {}
     for b in bs:
         nb = b + 1
-        ok = (b in auto_bs and abs(auto_bs[b] - bs[b]) < 0.03 and
-              (nb not in bs or (nb in auto_bs and abs(auto_bs[nb] - bs[nb]) < 0.03)))
+        ok = (b in auto_bs and auto_bs[b] == bs[b] and
+              (nb not in bs or (nb in auto_bs and auto_bs[nb] == bs[nb])))
         good[b] = ok
     beats = {k: v for k, v in beats.items() if good.get(k[0])}
     return bs, beats, end
@@ -383,6 +392,8 @@ class Timeline:
         """小节 b 第 beat 拍（可为小数）的时间。"""
         nb, first = textdoc.bar_beats(b)
         t0, t1 = self.start[b], self.bar_end(b)
+        if beat == first:
+            return t0
         k = int(math.floor(beat + 1e-9))
         if (b, float(k)) in self.beat_times:
             ta = self.beat_times[(b, float(k))]

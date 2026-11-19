@@ -5,7 +5,7 @@
 用法：python3 make_render_pack.py"""
 import os, sys, zipfile, glob, json, subprocess
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import (NICE_CMD, FF_THREADS, PROJ, MID, DATA, OUT, CFG, SHORT_NAME, OUTPUT_NAME, TITLE_CARD, SCORE, SCORE_PAGES,
+from common import (NICE_CMD, FF_THREADS, PROJ, MID, DATA, OUT, CFG, SHORT_NAME, OUTPUT_NAME, TITLE_CARD, SCORE, SCORE_PAGES, SCORE_BARS_CSV,
                     AUDIO_WAV, AUDIO_FLAC, FONT_DIR, FREEFONT_DIR)
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -92,7 +92,7 @@ def main():
         z.writestr(f"{ROOT}/使用说明.txt", README)
         z.writestr(f"{ROOT}/输出/.keep", "")
         add(os.path.join(PROJ, "文字稿.txt"), "文字稿.txt")
-        for fn in ("小节位置.csv", "总谱小节位置.csv", "小节时间.csv", "两部分.txt", "对齐锚点.csv"):
+        for fn in dict.fromkeys(("小节位置.csv", "小节时间.csv", "两部分.txt", "对齐锚点.csv", os.path.relpath(SCORE_BARS_CSV, DATA))):
             if os.path.exists(os.path.join(DATA, fn)):
                 add(os.path.join(DATA, fn), f"数据/{fn}")
         rel = os.path.relpath(SCORE_PAGES, PROJ)
