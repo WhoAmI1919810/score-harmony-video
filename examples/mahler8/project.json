@@ -1,0 +1,49 @@
+{
+  "_说明": "马勒《第八交响曲》实例（2026-11 真实项目）。路径相对本文件所在目录；PDF、录音不随仓库分发，按 _来源 自己下载。",
+  "short_name": "马勒8",
+  "home_key": "Eb",
+  "beats_per_bar": 4,
+  "pickup_bar": null,
+  "total_bars": 2152,
+  "display_score": "full",
+  "reading_score": {
+    "pdf": "素材/IMSLP32652-PMLP05693-Mahler-Sym8VSue.pdf",
+    "_来源": "IMSLP #32652，Universal Edition 人声缩谱 U.E. 2660",
+    "first_page": 1,
+    "last_page": 209,
+    "credit": "乐谱：Universal Edition 人声缩谱，U.E. 2660（IMSLP）"
+  },
+  "full_score": {
+    "pdf": "素材/IMSLP17066-Mahler-Symphony8fs.pdf",
+    "_来源": "IMSLP #17066，Universal Edition 总谱 U.E. 2772",
+    "first_page": 1,
+    "last_page": 216,
+    "upscale": 2,
+    "credit": "总谱：Universal Edition，U.E. 2772（IMSLP）"
+  },
+  "audio": {
+    "source": "素材/录音.mp3",
+    "_来源": "索尔蒂 / 芝加哥交响乐团（受版权保护，不能分发）",
+    "trim": null,
+    "cuts": [[1393.0, 1405.0]],
+    "end": 4775.8,
+    "music_start": 0.0,
+    "music_end": 4770.4,
+    "part2_start": 1395.36
+  },
+  "video": {"tail": 5.0},
+  "text": {
+    "title": "马勒 · 第八交响曲",
+    "title_card": "马勒《第八交响曲》",
+    "subtitle": "第一部分 Veni, creator spiritus　第二部分 《浮士德》终场",
+    "performer": "格奥尔格·索尔蒂 指挥　芝加哥交响乐团",
+    "output_name": "马勒第八交响曲_和声分析",
+    "part_names": ["第一部分", "第二部分"]
+  },
+  "omr": {
+    "clef_page": 1, "clef_x0": 586, "clef_staves": [0, 3],
+    "flat_boxes": {"page": 1, "system": 0, "staff": 0, "boxes": [[671, 670, 20, 57], [690, 643, 20, 52], [706, 686, 21, 53]]},
+    "sharp_boxes": {"page": 31, "system": 0, "staff": 0, "boxes": [[350, 312, 25, 64], [373, 342, 25, 66]]}
+  },
+  "fonts_dir": null
+}

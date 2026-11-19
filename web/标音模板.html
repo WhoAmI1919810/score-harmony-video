@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{作品名}} · 请帮我标音</title>
+<style>
+:root{
+  --bg:#f4f1ea; --panel:#fffdf8; --ink:#1f1d1a; --ink2:#5c574f; --ink3:#8d877c; --line:#ddd6c8;
+  --accent:#b4471f; --accent2:#2f5d8a; --hi:rgba(240,170,60,.22); --hiline:#d9952a; --ok:#3b7a4a; --warn:#b4471f;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.55 -apple-system,"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif}
+header{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 16px;background:var(--panel);border-bottom:1px solid var(--line)}
+header h1{font-size:18px;margin:0 8px 0 0}
+#prog{color:var(--ink2);font-size:14px}
+#status{font-size:13px;color:var(--ink3);margin-left:auto}
+#status.warn{color:var(--warn);font-weight:600}
+button{font:inherit;font-size:14px;padding:5px 12px;border:1px solid var(--line);border-radius:6px;background:#fff;color:var(--ink);cursor:pointer}
+button:hover{border-color:var(--ink3)}
+button.primary{background:var(--accent2);border-color:var(--accent2);color:#fff}
+button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.wrap{display:flex;min-height:calc(100% - 56px)}
+nav{width:230px;flex:none;border-right:1px solid var(--line);background:var(--panel);overflow:auto;max-height:calc(100vh - 56px);position:sticky;top:56px}
+nav .it{display:flex;align-items:center;gap:8px;padding:7px 12px;border-bottom:1px solid #eee8dc;cursor:pointer;font-size:14px}
+nav .it:hover{background:#f6f2ea}
+nav .it.sel{background:#efe7d6;font-weight:600}
+.dot{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink3);flex:none}
+.dot.marked{background:var(--accent2);border-color:var(--accent2)}
+.dot.fine{background:var(--ok);border-color:var(--ok)}
+.dot.seen{background:#d8cdb8;border-color:#b9ad96}
+main{flex:1;min-width:0;padding:16px 20px 80px}
+.q{background:#fff6e2;border:1px solid #edd8a8;border-left:5px solid var(--hiline);border-radius:6px;padding:10px 14px;font-size:16px;margin:8px 0 14px}
+.q b{color:var(--accent)}
+table.cur{border-collapse:collapse;width:100%;max-width:1100px;margin-bottom:12px;background:var(--panel)}
+table.cur th,table.cur td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top;font-size:14px}
+table.cur th{background:#efe9dc;color:var(--ink2);font-weight:600}
+table.cur td.lab{white-space:nowrap;font-weight:600}
+table.cur td.mine{color:var(--ink2);font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+table.cur input{width:100%;font:inherit;font-size:14px;padding:4px 6px;border:1px solid var(--line);border-radius:4px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:6px 0 8px}
+.tools .sep{width:1px;height:22px;background:var(--line);margin:0 4px}
+.hint{color:var(--ink3);font-size:13px}
+.imgbox{position:relative;display:inline-block;background:#fff;border:1px solid var(--line);margin:6px 0 14px;max-width:100%;overflow:auto}
+.imgbox .cap{position:sticky;left:0;font-size:12px;color:var(--ink3);padding:2px 6px;background:#faf8f3;border-bottom:1px solid var(--line)}
+.stage{position:relative;cursor:crosshair}
+.stage img{display:block;user-select:none;-webkit-user-drag:none}
+.stage svg{position:absolute;left:0;top:0;pointer-events:none}
+.stage svg .mk{pointer-events:auto;cursor:pointer}
+.pop{position:absolute;z-index:30;background:#fff;border:1px solid var(--ink3);border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.18);padding:8px;display:flex;flex-direction:column;gap:6px;min-width:250px}
+.pop input{font:inherit;font-size:16px;padding:4px 6px;border:1px solid var(--line);border-radius:4px}
+.pop .accs{display:flex;gap:4px;flex-wrap:wrap}
+.pop .accs button{padding:2px 8px;font-size:15px}
+.pop .row{display:flex;gap:6px;justify-content:flex-end}
+textarea{width:100%;max-width:1100px;min-height:60px;font:inherit;font-size:14px;padding:6px 8px;border:1px solid var(--line);border-radius:6px}
+.marks{font-size:13px;color:var(--ink2);margin:4px 0 10px}
+.marks span{display:inline-block;background:#e8eef6;border:1px solid #c5d3e4;border-radius:4px;padding:0 6px;margin:2px 4px 2px 0}
+.help{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:10px 14px;font-size:14px;color:var(--ink2);max-width:1100px;margin-bottom:12px}
+kbd{border:1px solid var(--line);border-bottom-width:2px;border-radius:3px;padding:0 4px;font-size:12px;background:#fff}
+@media (max-width:760px){nav{display:none}main{padding:12px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>{{作品名}} · 请帮我标音</h1>
+  <span id="prog"></span>
+  <button id="bPrev">← 上一条</button><button id="bNext">下一条 →</button>
+  <button id="bExport" class="primary">导出结果</button>
+  <button id="bCopy">复制结果</button>
+  <button id="bLoad">导入结果</button>
+  <input type="file" id="fLoad" accept=".json,application/json" hidden>
+  <span id="status">网页不会自动保存，请隔一阵导出一次</span>
+</header>
+<div class="wrap">
+  <nav id="list"></nav>
+  <main id="main"></main>
+</div>
+<script>
+(function(){
+let D = null, cur = 0, dirty = 0, view = "vs", showOmr = false, zoom = 1;
+const R = {};            // id -> {status, comment, bars:{bar:text}, marks:[{bar,src,page,x,y,t}]}
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function rec(id){ return R[id] || (R[id] = {status:"", comment:"", bars:{}, marks:[]}); }
+function setStatus(t, warn){ const s = $("#status"); s.textContent = t; s.className = warn ? "warn" : ""; }
+function touch(){ dirty++; setStatus(`有 ${dirty} 处改动还没导出`, true); renderList(); }
+window.addEventListener("beforeunload", e => { if (dirty){ e.preventDefault(); e.returnValue = ""; } });
+
+function stateOf(it){
+  const r = R[it.id]; if (!r) return "";
+  if (r.status === "fine") return "fine";
+  if (r.marks.length || Object.values(r.bars).some(v => v) || r.comment) return "marked";
+  return r.status === "seen" ? "seen" : "";
+}
+function renderList(){
+  const n = D.items.length, done = D.items.filter(it => stateOf(it) === "marked" || stateOf(it) === "fine").length;
+  $("#prog").textContent = `已处理 ${done} / ${n}`;
+  $("#list").innerHTML = D.items.map((it, i) =>
+    `<div class="it${i === cur ? " sel" : ""}" data-i="${i}"><span class="dot ${stateOf(it)}"></span>${esc(it.title)}</div>`).join("");
+}
+$("#list").addEventListener("click", e => { const d = e.target.closest(".it"); if (d) go(+d.dataset.i); });
+function go(i){ if (i < 0 || i >= D.items.length) return; cur = i; closePop();
+  const r = rec(D.items[i].id); if (!r.status) r.status = "seen";
+  render(); renderList(); window.scrollTo(0, 0); }
+$("#bPrev").onclick = () => go(cur - 1);
+$("#bNext").onclick = () => go(cur + 1);
+
+function render(){
+  const it = D.items[cur], r = rec(it.id);
+  const imgs = view === "vs" ? it.vs : it.fs;
+  $("#main").innerHTML = `
+    <div class="help">点乐谱上看不清的音的位置，填上音名（如 <b>C♮4</b>、<b>B𝄫3</b>、<b>低音 F♭2</b>），回车保存；点已有的标记可以改或删。
+      也可以直接在下面表格里写这一小节的音或和弦。黄色框是要看的小节。<kbd>[</kbd> <kbd>]</kbd> 切换上一条/下一条。</div>
+    <h2 style="margin:4px 0">${esc(it.title)}</h2>
+    <div class="q"><b>看哪里：</b>${esc(it.q)}</div>
+    <table class="cur"><tr><th style="width:80px">小节</th><th style="width:38%">我现在的读法（拍位 级数 和弦）</th><th>你读到的音 / 和弦（不填 = 没意见）</th></tr>
+      ${it.cur.map(c => `<tr><td class="lab">${esc(c.lab)}</td><td class="mine">${esc(c.key ? "调 " + c.key + "　" : "")}${esc(c.chords)}</td>
+        <td><input data-bar="${c.bar}" value="${esc(r.bars[c.bar] || "")}" placeholder="例：低音 C♭2，上方 E♭4 G♭4 B♭4"></td></tr>`).join("")}
+    </table>
+    <div class="tools">
+      <button id="vVs" class="${view === "vs" ? "on" : ""}">缩谱</button>
+      <button id="vFs" class="${view === "fs" ? "on" : ""}" ${it.fs.length ? "" : "disabled"}>总谱</button>
+      <span class="sep"></span>
+      <button id="zFit">适应宽度</button><button id="z1" class="${zoom === 1 ? "on" : ""}">原大</button><button id="z15" class="${zoom === 1.5 ? "on" : ""}">1.5 倍</button><button id="z2" class="${zoom === 2 ? "on" : ""}">2 倍</button>
+      <span class="sep"></span>
+      <label class="hint"><input type="checkbox" id="omr" ${showOmr ? "checked" : ""} ${view === "vs" ? "" : "disabled"}> 显示读谱程序认出的音名（常有错，仅供参考）</label>
+    </div>
+    <div id="imgs">${imgs.map((g, k) => stageHTML(g, k)).join("")}</div>
+    <div class="marks" id="mk"></div>
+    <div class="tools">
+      <button id="bFine" class="${r.status === "fine" ? "on" : ""}">我的读法没问题</button>
+      <span class="hint">（点了就算这一条处理完）</span>
+    </div>
+    <textarea id="cmt" placeholder="其他说明（可选）">${esc(r.comment)}</textarea>`;
+  $("#main").querySelectorAll("table.cur input").forEach(inp => inp.addEventListener("input", () => { r.bars[inp.dataset.bar] = inp.value.trim(); if (r.status === "fine") r.status = "seen"; touch(); }));
+  $("#cmt").addEventListener("input", e => { r.comment = e.target.value; touch(); });
+  $("#bFine").onclick = () => { r.status = r.status === "fine" ? "seen" : "fine"; touch(); render(); };
+  $("#vVs").onclick = () => { view = "vs"; render(); };
+  $("#vFs").onclick = () => { view = "fs"; render(); };
+  $("#omr").onchange = e => { showOmr = e.target.checked; render(); };
+  $("#zFit").onclick = () => { zoom = 0; render(); };
+  $("#z1").onclick = () => { zoom = 1; render(); };
+  $("#z15").onclick = () => { zoom = 1.5; render(); };
+  $("#z2").onclick = () => { zoom = 2; render(); };
+  $("#main").querySelectorAll(".stage").forEach(st => st.addEventListener("click", onStageClick));
+  drawMarks();
+}
+function scaleOf(g){
+  if (zoom) return zoom;
+  const W = Math.max(300, $("#main").clientWidth - 30);
+  return Math.min(1, W / g.w);
+}
+function stageHTML(g, k){
+  const s = scaleOf(g), w = Math.round(g.w * s), h = Math.round(g.h * s);
+  const boxes = g.boxes.map(b => `<rect x="${b.x0 * s}" y="${Math.max(0, b.y0 * s - 70)}" width="${(b.x1 - b.x0) * s}" height="${(b.y1 - b.y0) * s + 140}" fill="var(--hi)" stroke="var(--hiline)" stroke-width="1.5"/>
+      <text x="${b.x0 * s + 4}" y="16" font-size="14" font-weight="700" fill="#9a5a10">${esc(b.lab)}</text>`).join("");
+  const omr = (showOmr && view === "vs") ? g.notes.map(n => `<text x="${(n.x + 9) * s}" y="${(n.y + 4) * s}" font-size="${Math.max(9, 12 * s)}" fill="#3a8a4a">${esc(n.n)}</text>`).join("") : "";
+  return `<div class="imgbox"><div class="cap">${view === "vs" ? "人声缩谱" : "总谱"} 第 ${g.page} 页 · 第 ${g.system} 个系统</div>
+    <div class="stage" data-k="${k}" style="width:${w}px;height:${h}px">
+      <img src="${g.src}" width="${w}" height="${h}" alt="">
+      <svg width="${w}" height="${h}">${boxes}${omr}<g class="mks"></g></svg></div></div>`;
+}
+function curImgs(){ const it = D.items[cur]; return view === "vs" ? it.vs : it.fs; }
+function drawMarks(){
+  const it = D.items[cur], r = rec(it.id), imgs = curImgs();
+  $("#main").querySelectorAll(".stage").forEach(st => {
+    const g = imgs[+st.dataset.k], s = scaleOf(g), gm = st.querySelector("g.mks");
+    gm.innerHTML = r.marks.map((m, i) => ({m, i})).filter(o => o.m.src === g.src).map(({m, i}) =>
+      `<g class="mk" data-i="${i}"><circle cx="${m.x * s}" cy="${m.y * s}" r="9" fill="rgba(180,71,31,.18)" stroke="#b4471f" stroke-width="2"/>
+       <text x="${m.x * s + 12}" y="${m.y * s - 8}" font-size="15" font-weight="700" fill="#b4471f" stroke="#fff" stroke-width="3" paint-order="stroke">${esc(m.t)}</text></g>`).join("");
+    gm.querySelectorAll(".mk").forEach(el => el.addEventListener("click", ev => { ev.stopPropagation(); openPop(st, +el.dataset.i); }));
+  });
+  const ms = r.marks.filter(m => m.t);
+  $("#mk").innerHTML = ms.length ? "你的标注：" + ms.map(m => `<span>${esc(m.lab)} ${esc(m.t)}</span>`).join("") : "";
+}
+function onStageClick(ev){
+  const st = ev.currentTarget, g = curImgs()[+st.dataset.k], s = scaleOf(g);
+  const rc = st.getBoundingClientRect();
+  const x = (ev.clientX - rc.left) / s, y = (ev.clientY - rc.top) / s;
+  const box = g.boxes.find(b => x >= b.x0 && x < b.x1) || g.boxes.reduce((a, b) => Math.abs((b.x0 + b.x1) / 2 - x) < Math.abs((a.x0 + a.x1) / 2 - x) ? b : a);
+  const r = rec(D.items[cur].id);
+  r.marks.push({bar: box.bar, lab: box.lab, src: g.src, view, page: g.page, x: +x.toFixed(1), y: +y.toFixed(1),
+                px: +(g.ox + x / g.scale).toFixed(1), py: +(g.oy + y / g.scale).toFixed(1), t: ""});
+  drawMarks(); openPop(st, r.marks.length - 1, true);
+}
+let pop = null;
+function closePop(){ if (pop){ pop.remove(); pop = null; } }
+function openPop(st, i, isNew){
+  closePop();
+  const r = rec(D.items[cur].id), m = r.marks[i], g = curImgs()[+st.dataset.k], s = scaleOf(g);
+  pop = document.createElement("div"); pop.className = "pop";
+  pop.style.left = Math.min(m.x * s + 14, st.clientWidth - 260) + "px"; pop.style.top = (m.y * s + 14) + "px";
+  pop.innerHTML = `<div class="hint">${esc(m.lab)} 这里是什么音？</div>
+    <input value="${esc(m.t)}" placeholder="例：C♮4、B𝄫3、低音 F♭2">
+    <div class="accs">${["♭","♮","♯","𝄫","𝄪"].map(a => `<button data-a="${a}">${a}</button>`).join("")}</div>
+    <div class="row"><button data-k="del">删除</button><button data-k="ok" class="primary">保存</button></div>`;
+  st.appendChild(pop);
+  const inp = pop.querySelector("input"); inp.focus(); inp.select();
+  pop.addEventListener("click", e => e.stopPropagation());
+  pop.querySelectorAll(".accs button").forEach(b => b.onclick = () => { inp.setRangeText(b.dataset.a, inp.selectionStart, inp.selectionEnd, "end"); inp.focus(); });
+  const save = () => { const t = inp.value.trim(); if (!t){ r.marks.splice(i, 1); } else { m.t = t; if (r.status === "fine") r.status = "seen"; } closePop(); touch(); drawMarks(); };
+  const del = () => { r.marks.splice(i, 1); closePop(); touch(); drawMarks(); };
+  pop.querySelector('[data-k="ok"]').onclick = save;
+  pop.querySelector('[data-k="del"]').onclick = del;
+  inp.addEventListener("keydown", e => { if (e.key === "Enter") save(); if (e.key === "Escape"){ if (isNew && !m.t){ r.marks.splice(i, 1); drawMarks(); } closePop(); } e.stopPropagation(); });
+}
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  if (e.key === "[") go(cur - 1);
+  if (e.key === "]") go(cur + 1);
+});
+window.addEventListener("resize", () => { if (!zoom) render(); });
+
+// ---------- 导出 / 导入 ----------
+function result(){
+  return JSON.stringify({version: 1, exported: new Date().toISOString(), items: D.items.map(it => {
+    const r = R[it.id] || {};
+    return {id: it.id, title: it.title, status: r.status || "", comment: r.comment || "",
+            bars: Object.fromEntries(Object.entries(r.bars || {}).filter(([k, v]) => v)),
+            marks: (r.marks || []).filter(m => m.t).map(m => ({bar: m.bar, lab: m.lab, view: m.view, page: m.page, x: m.px, y: m.py, note: m.t}))};
+  })}, null, 1);
+}
+$("#bExport").onclick = () => {
+  const blob = new Blob([result()], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL["createObjectURL"](blob); a.download = "标音结果.json";
+  document.body.appendChild(a); a.click(); a.remove();
+  dirty = 0; setStatus("已导出 标音结果.json（如果浏览器没下载，请用「复制结果」）");
+};
+$("#bCopy").onclick = async () => {
+  try { await navigator.clipboard.writeText(result()); dirty = 0; setStatus("已复制到剪贴板，可以直接粘贴发给我"); }
+  catch (e) { const t = document.createElement("textarea"); t.value = result(); document.body.appendChild(t); t.select(); document.execCommand("copy"); t.remove(); dirty = 0; setStatus("已复制到剪贴板"); }
+};
+$("#bLoad").onclick = () => $("#fLoad").click();
+$("#fLoad").onchange = async e => {
+  const f = e.target.files[0]; if (!f) return;
+  try {
+    const v = JSON.parse(await f.text());
+    for (const x of v.items || []){
+      const it = D.items.find(i => i.id === x.id || i.title === x.title); if (!it) continue;
+      const r = rec(it.id); r.status = x.status || ""; r.comment = x.comment || ""; r.bars = Object.assign({}, x.bars || {});
+      r.marks = [];
+      for (const m of x.marks || []){
+        const imgs = m.view === "fs" ? it.fs : it.vs;
+        const g = imgs.find(g => g.page === m.page && m.x >= g.ox && m.x <= g.ox + g.w / g.scale) || imgs[0];
+        if (!g) continue;
+        r.marks.push({bar: m.bar, lab: m.lab, src: g.src, view: m.view, page: m.page, px: m.x, py: m.y,
+                      x: +((m.x - g.ox) * g.scale).toFixed(1), y: +((m.y - g.oy) * g.scale).toFixed(1), t: m.note});
+      }
+    }
+    dirty = 0; render(); renderList(); setStatus("已导入 " + f.name);
+  } catch (err) { setStatus("导入失败：" + err.message, true); }
+  e.target.value = "";
+};
+
+fetch("data.json").then(r => r.json()).then(d => { D = d; rec(D.items[0].id).status = "seen"; renderList(); render(); })
+  .catch(e => { $("#main").textContent = "数据载入失败：" + e.message; });
+})();
+</script>
+</body>
+</html>

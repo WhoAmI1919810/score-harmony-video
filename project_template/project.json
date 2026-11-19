@@ -1,0 +1,107 @@
+{
+  "_说明": "复制整个 project_template 目录作为新作品的工程目录，按注释填。路径相对本文件。字段说明见 docs/02_工程配置.md。",
+  "short_name": "作品简称（文件名用，如 马勒8）",
+  "home_key": "C",
+  "_home_key": "主调：大写大调、小写小调，降号写 b，升号写 #（Eb、f#）",
+  "beats_per_bar": 4,
+  "_beats_per_bar": "名义拍数。拍号多变的作品统一按每小节 4 个等分位置写拍位",
+  "pickup_bar": null,
+  "total_bars": null,
+  "_total_bars": "全曲小节数（读完页角印的小节号后填，用于核对）",
+  "display_score": "vocal",
+  "_display_score": "画面左侧显示哪份谱：vocal = 读谱用的缩谱，full = 总谱（要先做 fspages、fsbars）",
+  "reading_score": {
+    "pdf": "素材/缩谱.pdf",
+    "first_page": 1,
+    "last_page": 1,
+    "credit": "乐谱：出版社、编号（来源）",
+    "_说明": "读谱、自动和声候选、对齐都靠这份。必须是钢琴缩谱/人声缩谱这类两三行谱表的谱子；只有总谱时读谱和对齐模板都做不了"
+  },
+  "full_score": {
+    "pdf": null,
+    "first_page": 1,
+    "last_page": 1,
+    "upscale": 2,
+    "credit": "",
+    "_说明": "可选。画面显示用 + 人工读和声时核对。扫描谱线间距小于 12 像素时 upscale 设 2"
+  },
+  "audio": {
+    "source": "素材/录音.mp3",
+    "trim": null,
+    "cuts": [],
+    "end": 0,
+    "music_start": 0.0,
+    "music_end": 0,
+    "part2_start": null,
+    "_说明": "trim/cuts 用原文件秒数；end/music_end/part2_start 用剪辑后秒数（s3_audio.py 跑完会打印总长）"
+  },
+  "video": {
+    "tail": 5.0
+  },
+  "text": {
+    "title": "作曲家 · 作品名",
+    "title_card": "作曲家《作品名》",
+    "subtitle": "",
+    "performer": "指挥　乐团",
+    "output_name": "作品_和声分析",
+    "part_names": [
+      "第一部分",
+      "第二部分"
+    ]
+  },
+  "omr": {
+    "clef_page": 1,
+    "clef_x0": 586,
+    "clef_staves": [
+      0,
+      3
+    ],
+    "flat_boxes": {
+      "page": 1,
+      "system": 0,
+      "staff": 0,
+      "boxes": [
+        [
+          671,
+          670,
+          20,
+          57
+        ],
+        [
+          690,
+          643,
+          20,
+          52
+        ],
+        [
+          706,
+          686,
+          21,
+          53
+        ]
+      ]
+    },
+    "sharp_boxes": {
+      "page": 31,
+      "system": 0,
+      "staff": 0,
+      "boxes": [
+        [
+          350,
+          312,
+          25,
+          64
+        ],
+        [
+          373,
+          342,
+          25,
+          66
+        ]
+      ]
+    }
+  },
+  "_omr": "谱号、升降号模板在本谱上的位置（像素，中间文件/pages_deskew 页图上量）。这里的值是马勒八的，换谱子必须重量",
+  "fonts_dir": null,
+  "_fonts_dir": "字体目录（含 source_han/、freefont/）；工程目录或工具包下有 字体/ 时不用填"
+}

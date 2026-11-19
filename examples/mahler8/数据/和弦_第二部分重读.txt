@@ -1,0 +1,320 @@
+# ======== 第二部分（11-12 起逐页重读：缩谱原尺寸放大读音、不看自动候选；弦乐、低音对照总谱）========
+# 重读记录：比较用 脚本/reread_diff8.py；并入用 reread_diff8.py --merge
+调 eb
+# II-1~：第一小提琴 E♭ 八度震音持续；低音拨奏 B♭–E♭、D♭–C♭ 是单线动机
+II-1 | 1 —
+II-2 | 1 i Ebm
+II-3 | 1 —
+II-4 | 1 i Ebm
+II-5 | 1 i Ebm | 2 iv Abm
+II-6 | 1 i Ebm
+II-7 | 1 i Ebm
+II-8 | 1 V Bb | 3 V7 Bb7/Ab
+II-9 | 1 i Ebm | 3 VI Cb/Eb
+II-10 | 1 i Ebm | 2 iiø7 Fø7/Ab | 4 VII Db
+II-11 | 1 — | 3 i7 Ebm7 | 4 VI Cb/Db
+II-12 | 1 i Ebm | 4 iv Abm/Cb
+II-13 | 1 V7 Bb7 | 3 i Ebm
+II-14 | 1 iv7 Abm7
+II-15 | 1 VII7 Db7 | 2 iiø7 Fø7/Cb
+II-16 | 1 iv Abm
+II-17 | 1 VII Db
+II-18 | 1 VI Cb/Eb | 3 VII Db
+II-19 | 1 vii°7/V A°7/C
+II-20 | 1 iiø7 Fø7/Cb | 3 —
+II-21 | 1 —
+II-22 | 1 VI Cb/Db | 3 i64 Ebm/Bb
+II-23 | 1 — | 3 V7/iv Eb7/Bb
+II-24 | 1 V7/VII Ab7
+II-25 | 1 I Eb
+II-26 | =
+II-27 | 1 i7 Ebm7/Db
+# II-28 C 大三和弦（低音 C♮ 八度），接下来 II-29~30 到 F7（V7/V）：C 是 F 的属
+II-28 | 1 — C
+# II-29~33 低音 F 上的半音化和弦（排练号 4，大管/圆号），缩谱和总谱都只能大致读出：待复核
+II-29 | 1 —
+II-30 | 1 ii Fm
+II-31 | 1 —
+II-32 | 1 viiø7 Dø7/F
+II-33 | =
+II-34 | 1 —
+II-35 | 1 ii Fm
+II-36 | 1 —
+II-37 | 1 — | 3 i Ebm
+II-38 | 1 i Ebm
+II-39 | 1 v Bbm
+II-40 | 1 IV Ab/Eb
+II-41 | 1 ii7 Fm7
+II-42 | 1 —
+II-43 | 1 v Bbm
+II-44 | 1 i Ebm
+II-45 | =
+II-46 | =
+II-47 | 1 iv Abm | 3 i Ebm
+II-48 | 1 VI Cb | 2 V Bb
+II-49 | 1 iv Abm | 3 i Ebm
+II-50 | 1 IIImaj7 Gbmaj7
+II-51 | 1 i Ebm
+II-52 | 1 VI Cb | 3 iv Abm
+II-53 | 1 III Gb
+II-54 | 1 v Bbm/Db | 3 vii°7/V A°7/Cb
+II-55 | 1 — | 3 vii°7/V A°7
+II-56 | 1 VI Cb | 3 V Bb
+# 排练号 8 Etwas bewegter：开头动机同 II-1（低音 B♭–E♭ 拨奏），上方 E♭–G♭
+II-57 | 1 i Ebm
+II-58 | 1 VII Db | 2 VI Cb
+II-59 | 1 iv Abm | 2 vii°7 D°7
+II-60 | 1 i Ebm
+II-61 | 1 III Gb/Db | 2 VI Cb
+II-62 | 1 i Ebm
+II-63 | 1 vii°7/V A°7/Eb
+II-64 | 1 VII7 Db7
+II-65 | 1 vii°7 D°7
+II-66 | 1 —
+II-67 | 1 i Ebm
+II-68 | 1 VII Db
+II-69 | 1 VI Cb
+II-70 | 1 —
+II-71 | 1 iv Abm
+II-72 | 1 i Ebm | 3 iv Abm/Cb
+# 排练号 11：低音 E♭（低音大管）上 V
+II-73 | 1 V Bb/Eb
+# II-74~78 低音 E♭ 持续（Breit）
+II-74 | 1 V Bb/Eb
+II-75 | 1 — | 2 vii°7/V A°7/Eb
+II-76 | 1 V Bb/Eb
+II-77 | 1 —
+II-78 | 1 v Bbm/Eb
+II-79 | 1 V Bb
+II-80 | 1 v Bbm | 3 —
+II-81 | 1 i Ebm
+II-82 | 1 V Bb | 3 III Gb
+II-83 | 1 v7 Bbm7
+II-84 | 1 i Ebm
+II-85 | 1 iv Abm
+II-86 | 1 v Bbm
+II-87 | 1 iiø7/V Cø7
+II-88 | 1 —
+II-89 | 1 IV7 Ab7
+II-90 | 1 IV Ab
+II-91 | 1 viiø7/iv Gø7
+II-92 | 1 V7/ii C7
+II-93 | 1 —
+# 排练号 14：低音 B♭ 持续，上方 B♭ 震音和 G♭（六度倚音）
+II-94 | 1 v7 Bbm7
+II-95 | 1 —
+II-96 | 1 —
+# Più mosso（排练号 15 前）
+II-97 | 1 v7 Bbm7/Ab
+II-98 | 1 III Gb
+II-99 | 1 III Gb | 3 VII7 Db7
+II-100 | 1 VI Cb | 3 v Bbm
+# 排练号 15 a tempo moderato
+II-101 | 1 III Gb
+II-102 | 1 VII7 Db7
+II-103 | 1 i7 Ebm7
+II-104 | 1 iiø7 Fø7/Ab | 3 iv Abm
+II-105 | 1 iv Abm
+# Nicht eilen
+II-106 | 1 VI Cb
+II-107 | =
+# 排练号 16：升号、还原号密集的半音化，调中心不明确
+II-108 | 1 —
+II-109 | 1 —
+II-110 | 1 —
+# Poco stringendo
+II-111 | 1 vii°7 D°7
+II-112 | 1 iv Abm
+II-113 | 1 —
+# Fließend：重降、还原记号的半音化，低音 G♭ 附近
+II-114 | 1 —
+II-115 | 1 —
+II-116 | 1 —
+II-117 | 1 IIImaj7 Gbmaj7
+II-118 | 1 VII+ Db+
+II-119 | 1 VII Db
+II-120 | 1 — | 3 III Gb
+II-121 | 1 — | 3 III Gb
+II-122 | 1 VImaj7 Cbmaj7
+# 排练号 18
+II-123 | 1 i Ebm
+II-124 | 1 VII Db
+II-125 | 1 v Bbm | 3 V Bb
+II-126 | 1 vii°7/V A°7
+# Etwas fließend：升号、还原号的半音化
+II-127 | 1 —
+II-128 | 1 —
+II-129 | 1 — | 3 IV7 Ab7/Db
+II-130 | 1 v Bbm
+II-131 | 1 V7 Bb7
+# Tempo：圆号 B♭ 小七和弦，低音 B♭–E♭ 动机
+II-132 | 1 v7 Bbm7 | 3 i Ebm
+II-133 | 1 V Bb
+II-134 | 1 v Bbm/Db
+# Nicht eilen
+II-135 | 1 iv7 Abm7/Gb | 3 VII7 Db7
+II-136 | 1 iv Abm
+II-137 | 1 —
+II-138 | 1 iv Abm/Cb
+# 排练号 20：低音 E♭ 持续，F♭ 是上方的经过音
+II-139 | 1 i Ebm
+II-140 | 1 iv Abm | 4 iiø7 Fø7
+# Tempo：上方 F–A♮（V7/V 的音）叠在低音 E♭ 上
+II-141 | 1 V7/V F7/Eb | 3 i Ebm
+II-142 | 1 VII7 Db7 | 2 VI Cb
+II-143 | 1 V Bb
+# Nicht schleppen
+II-144 | 1 v Bbm
+II-145 | 1 V7/V F7/Eb
+II-146 | 1 i Ebm | 4 iiø7 Fø7
+# 排练号 21：低音大管 E♭ 持续
+II-147 | 1 i Ebm
+II-148 | 1 vii°7/V A°7/Eb
+II-149 | 1 V7 Bb7/Eb
+II-150 | 1 V Bb | 3 V/iv Eb
+II-151 | 1 i Ebm | 3 i7 Ebm7
+II-152 | 1 —
+II-153 | 1 vii°7/V A°7
+# 排练号 22：低音 E♭ 持续
+II-154 | 1 i Ebm
+II-155 | =
+II-156 | 1 i Ebm | 3 vii°7/V A°7
+II-157 | 1 IV7 Ab7 | 3 —
+II-158 | 1 vii°7/V A°7 | 3 V7/V F7
+II-159 | 1 VI Cb | 3 V Bb
+II-160 | 1 i Ebm | 3 vii°7/iv G°7/Fb
+II-161 | 1 IV Ab
+II-162 | 1 —
+# II-163~165：圆号 E♭–G♮–B♭（V/iv）与低音 F♭（那不勒斯）交替
+II-163 | 1 V/iv Eb | 3 N Fb
+II-164 | 1 VI Cb | 3 i Ebm
+II-165 | 1 V/iv Eb | 3 N Fb
+II-166 | 1 i64 Ebm/Bb
+# 排练号 24：6/4 拍，拍位按 4 等分（第 4 拍 = 3，第 5 拍 = 3.67，第 6 拍 = 4.33）；开头动机同 II-1
+II-167 | 1 i Ebm
+II-168 | 1 i Ebm | 3 VII7 Db7 | 4.33 iiø7 Fø7/Cb
+II-169 | 1 i Ebm | 3 iv Abm | 3.67 i Ebm
+II-170 | 1 VII Db | 1.67 VI Cb | 3 iiø7 Fø7
+# Waldung, sie schwankt heran（隐士合唱进入）
+II-171 | 1 iv Abm
+II-172 | 1 i Ebm | 3 iiø7 Fø7
+II-173 | 1 iv Abm | 3.67 V7/VI Gb7 | 4.33 iiø7 Fø7
+# 排练号 25
+II-174 | 1 VI Cb | 2.33 i64 Ebm/Bb
+II-175 | 1 iiø7 Fø7/Ab | 2.33 iiø7 Fø7/Eb
+II-176 | 1 VII Db | 2.33 IIImaj7 Gbmaj7/Cb | 3.67 i Ebm
+II-177 | 1 iiø7 Fø7/Ab | 1.67 iiø7 Fø7/Eb
+II-178 | 1 VII Db | 2.33 iiø7 Fø7/Cb | 3.67 iv Abm/Eb
+II-179 | 1 VII Db/Eb | 3.67 III Gb/Db
+# 排练号 26：低音 D♭–E♭–F 上行
+II-180 | 1 VII Db | 3.67 iiø7 Fø7/Eb
+II-181 | 1 vii°7/V A°7/Eb
+II-182 | 1 iiø7 Fø7
+II-183 | 1 VImaj7 Cbmaj7
+II-184 | 1 vii°7/V A°7
+# 排练号 27
+II-185 | 1 iiø7/V Cø7
+II-186 | 1 III Gb | 2.33 VII Db | 3.67 VI Cb
+II-187 | 1 V7/V F7
+II-188 | 1 i Ebm
+II-189 | 1 i Ebm | 2.33 iv Abm/Eb
+# 排练号 28：低音 E♭–F–G♭ 上行（拨奏），i 延长
+II-190 | 1 i Ebm
+II-191 | 1 —
+II-192 | 1 iv Abm | 2.33 i Ebm
+II-193 | 1 i Ebm
+II-194 | =
+# 排练号 29 morendo
+II-195 | 1 IV Ab
+II-196 | 1 V7/iv Eb7/Db | 3 i Ebm
+II-197 | 1 — | 3 VI Cb
+II-198 | 1 VI Cb | 2 —
+II-199 | 1 —
+II-200 | 1 —
+II-201 | 1 VImaj7 Cbmaj7
+# 排练号 30：低音 F 上 F–A–C–E（还原），接回小提琴 E♭ 震音
+II-202 | 1 V/V F
+II-203 | 1 i Ebm
+# Löwen, sie schleichen stumm-freundlich：上方 C♮、G♮、A♮ 的半音化
+II-204 | 1 ii7 Fm7
+II-205 | 1 IVmaj7 Abmaj7 | 2 —
+II-206 | 1 — | 2.33 VII7 Db7 | 3.67 VI Cb
+II-207 | 1 VI Cb/Gb | 3.67 i Ebm
+II-208 | 1 i Ebm
+# 排练号 31 Ehren geweihter Liebe Hort：合唱 E♭–G♮–B♭（第二男高音 G 前有还原号）
+II-209 | 1 V/iv Eb
+II-210 | 1 — | 2.5 ii Fm/Ab | 3 —
+II-211 | 1 ii Fm
+II-212 | 1 V+ Bb+ | 3 v Bbm
+II-213 | 1 i Ebm
+# 排练号 32 Moderato（Pater ecstaticus 前奏）
+II-214 | 1 iv Abm
+II-215 | 1 III Gb
+II-216 | 1 V7/V F7
+II-217 | 1 vii°7/V A°7
+II-218 | 1 —
+# Pater ecstaticus（Moderato）：调号 3 个降号，E♭ 大调
+调 Eb
+II-219 | 1 I Eb
+II-220 | 1 V7 Bb7
+II-221 | 1 vi Cm
+II-222 | 1 IV Ab
+II-223 | 1 vii°7/vi B°7
+II-224 | 1 V7/V F7/A | 3 I64 Eb/Bb
+II-225 | 1 vii°7/vi B°7
+II-226 | 1 IV Ab/C
+# 排练号 33：低音 E♭ 上小调和弦，同主音大小调交替
+II-227 | 1 i Ebm | 2 — | 4 I Eb
+II-228 | 1 iv Abm
+II-229 | 1 vii°7 D°7/Ab
+II-230 | 1 ♭VII7 Db7
+II-231 | 1 —
+II-232 | 1 V7/vi G7
+# 排练号 34
+II-233 | 1 —
+II-234 | 1 — | 3 V7 Bb7 | 4 vii°7/vi B°7
+II-235 | 1 IV Ab/C
+II-236 | 1 vi Cm | 4 —
+# Nicht eilen：低音 B♭ 持续
+II-237 | 1 V Bb
+II-238 | 1 ♭VII Db/Ab
+# 排练号 35：低音 A♭ 持续
+II-239 | 1 vii°7/vi B°7/Ab
+II-240 | 1 I Eb/G
+II-241 | 1 —
+II-242 | 1 iiø7 Fø7 | 4 V7 Bb7
+II-243 | 1 I64 Eb/Bb | 3 V7 Bb7
+II-244 | 1 vi Cm
+II-245 | 1 I Eb | 3 —
+II-246 | 1 v Bbm/F | 3 —
+# 排练号 36 Etwas gehalten
+II-247 | 1 vii°7/ii E°7
+II-248 | 1 vi Cm | 2 —
+II-249 | 1 V7/V F7/A | 3 I Eb/G
+II-250 | 1 IV Ab/Eb | 3 vii°7/V A°7/Eb
+II-251 | 1 —
+II-252 | 1 ii7 Fm7 | 4 V7 Bb7
+II-253 | 1 V7/V F7 | 2 I Eb
+II-254 | 1 —
+# 排练号 37 Poco a poco stringendo
+II-255 | 1 I Eb/G
+II-256 | 1 I Eb
+II-257 | 1 I64 Eb/Bb
+II-258 | 1 vi7 Cm7
+II-259 | 1 vi Cm | 4 vii° D°
+II-260 | 1 V7/V F7/Eb | 4 V7/V F7/A
+# 排练号 38 Allegro
+II-261 | 1 vi7 Cm7
+II-262 | 1 I64 Eb/Bb | 3 V Bb
+II-263 | 1 IV Ab/Eb | 3 V Bb
+II-264 | 1 vi7 Cm7 | 2 —
+II-265 | 1 I Eb | 3 V7 Bb7
+# Pater profundus（排练号 39）：调号 6 个降号，e♭ 小调，4/4
+调 eb
+II-266 | 1 i Ebm
+II-267 | 1 VI Cb | 3 i Ebm | 4 —
+II-268 | 1 V Bb | 3 —
+II-269 | 1 VI Cb
+II-270 | 1 VI Cb/Eb
+# Nicht eilen：人声 D♮（导音），低音 C♭
+II-271 | 1 vii°7 D°7/Cb
